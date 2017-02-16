@@ -1,4 +1,4 @@
-# koalacTradingArea 
+# TradingArea 
 
 * 图片资源路径
 > 所有图片资源采用引用路径，从而减少项目文件大小。
