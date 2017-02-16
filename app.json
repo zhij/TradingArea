@@ -1,12 +1,13 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/logs/logs"
+        "pages/logs/logs",
+        "pages/pay/pay"
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "black"
+        "navigationBarBackgroundColor": "#000",
+        "navigationBarTitleText": "考拉商圈",
+        "navigationBarTextStyle": "#fff"
     }
 }

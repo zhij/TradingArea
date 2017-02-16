@@ -1,0 +1,27 @@
+<!--pay.wxml-->
+<!--当面付主页面-->
+<view class="payContainer">
+    <view class="payContentContainer">
+        <view class="shopInfoContainer">
+            <image src="{{payData.shopData.avatar}}" class="shopLogo"></image>
+            <text class="shopName">{{payData.shopData.name}}</text>
+        </view>
+        <view class="payNumberContainer">
+            <text class="payNumWord">消费金额</text>
+            <text class="payNumber ">188</text>
+        </view>
+        <view class="discountContainer">
+            <text class="discountMarks">每满100元减5元，5元优惠券</text>
+            <text class="discountdNumber">183</text>
+        </view>
+        <view class="messageContainer">
+            <text class="messageContent">我就是留言你想咋地</text>
+            <text class="addMessageBtn">添加留言</text>
+        </view>
+    </view>
+    <text>
+        {{payData.userData.name}}
+    </text>
+    <!--<image src="{{payData.shopData.avatar}}"></image>-->
+    <!--<image src="{{globalData.imageServerUrl}}/mylogo.png"></image>-->
+</view>
