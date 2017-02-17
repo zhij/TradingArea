@@ -17,7 +17,16 @@ Page({
         }
     },
     onLoad: function() {
-        console.log(App.globalData.imageServerUrl)
+        // console.log(App.globalData.imageServerUrl)
+        wx.request({
+            url: 'https://api.jqstudy.cn/testjson', //仅为示例，并非真实的接口地址
+            success: function(res) {
+                console.log(res.data.data.name)
+            }
+        })
+    },
+    getData: function() {
+        console.log("11")
     },
     onShareAppMessage: function() {
         return {

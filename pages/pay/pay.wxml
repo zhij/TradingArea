@@ -19,7 +19,7 @@
             <text class="addMessageBtn">添加留言</text>
         </view>
     </view>
-    <text>
+    <text bindtap="getData">
         {{payData.userData.name}}
     </text>
     <!--<image src="{{payData.shopData.avatar}}"></image>-->
