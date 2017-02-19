@@ -3,6 +3,7 @@
 * 图片资源路径
 
 > 所有图片资源采用引用路径，从而减少项目文件大小。
+
 ```
 //开启一个单独的文件服务器
 http-server -p 34567 
@@ -22,3 +23,5 @@ globalData: App.globalData, // 将全局的变量赋值给当前页面的data内
 或者
 <image src="{{globalData.imageServerUrl}}/mylogo.png"></image>
 ```
+
+* api接口
