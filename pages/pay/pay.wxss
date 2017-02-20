@@ -3,6 +3,7 @@
     width: 100%;
     background: #EBEBEB;
     overflow: hidden;
+    position: relative;
 }
 
 .payContentContainer {
@@ -18,8 +19,14 @@
     background: #F5F5F5;
     width: 100%;
     height: 130rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -39,8 +46,14 @@
     background: #fff;
     width: 100%;
     height: 165rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     box-sizing: border-box;
     padding: 0 45rpx;
@@ -94,8 +107,14 @@
     border-top: 2rpx solid #EBEBEB;
     box-sizing: border-box;
     padding: 0 45rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -126,10 +145,299 @@
     background: #fff;
     width: 100%;
     height: 60rpx;
-    background: pink;
+    /*background: pink;*/
     box-sizing: border-box;
     padding: 0 45rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 22rpx;
+}
+
+.messageContent {
+    color: #333;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.payContentContainer .messageContainer .addMessageBtn {
+    color: #4D7A95;
+    display: block;
+    width: 120rpx;
+}
+
+
+/*keyBoardContainer键盘容器css*/
+
+.keyBoardContainer {
+    width: 700rpx;
+    height: 440rpx;
+    background: #fff;
+    position: absolute;
+    left: 25rpx;
+    bottom: 25rpx;
+}
+
+.keyBoardContainer .adContainer {
+    position: absolute;
+    bottom: 100%;
+    height: 0;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.keyBoardContainer .adContainer .kaolacLogo {
+    height: 185rpx;
+    width: 173rpx;
+    position: absolute;
+    left: 0;
+    bottom: -50rpx;
+}
+
+.keyBoardContainer .adContainer .adContentContainer {
+    position: absolute;
+    height: 60rpx;
+    width: auto;
+    left: 250rpx;
+    bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.keyBoardContainer .adContainer .adContentContainer .koalacNameWord {
+    height: 28rpx;
+    width: 114rpx;
+}
+
+.keyBoardContainer .adContainer .adContentContainer .adContent {
+    padding: 0 10rpx;
+    border-left: 4rpx solid #BBBBBB;
+    margin-left: 10rpx;
+    color: #BBBBBB;
+}
+
+.keyBoardContainer .keyBoard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    box-sizing: border-box;
+    border: 1rpx solid #ddd;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.keyBoardContainer .keyBoard .left {
+    width: 525rpx;
+    height: 100%;
+    /*background: pink;*/
+    /*display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    box-sizing: border-box;*/
+}
+
+.keyBoardContainer .keyBoard .right {
+    width: 175rpx;
+    height: 100%;
+    /*background: lightblue;*/
+    box-sizing: border-box;
+}
+
+.keyBoardContainer .keyBoard .right button {
+    width: 100%;
+}
+
+.keyBoard button {
+    height: 110rpx;
+    width: calc(100% / 3);
+    border-radius: 0;
+    border: none;
+    float: left;
+    border-bottom: 1rpx solid #ddd;
+    border-right: 1rpx solid #ddd;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /*display: block;*/
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #999999;
+    font-size: 56rpx;
+    background-color: #fff;
+    position: relative;
+}
+
+.keyBoard button.noBorderBttom {
+    border-bottom: none;
+}
+
+.keyBoard button.noBorderRight {
+    border-right: none;
+}
+
+.keyBoard button::after {
+    content: '';
+    border-radius: 0;
+    border: none;
+}
+
+.bbb.bbb.bbb.bbb::after {
+    border-right: 1rpx solid #ddd;
+    border-bottom: 1rpx solid #ddd;
+}
+
+.keyBoard button.wxPayBtn {
+    height: calc(300% / 4);
+    width: 100%;
+    background: #7DC700;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.keyBoard button.button-hover {
+    background: #eee;
+}
+
+.keyBoard button.wxPayBtn.button-hover {
+    background: #7DC700;
+    opacity: 0.8;
+}
+
+.keyBoard button .keyBoardIco {
+    width: 40rpx;
+    height: 46rpx;
+}
+
+.keyBoard button .keyBoardDelete {
+    width: 57rpx;
+    height: 38rpx;
+}
+
+.keyBoard button .keyBoardWxIco {
+    width: 57rpx;
+    height: 50rpx;
+}
+
+.keyBoard button .keyBoardWxWord {
+    font-size: 26rpx;
+}
+
+
+/*messageMaskContainer 留言窗口样式*/
+
+.messageMaskContainer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    left: 0;
+    top: 0;
+}
+
+.messageMaskContentContainer {
+    width: 656rpx;
+    min-height: 440rpx;
+    background: #fff;
+    position: relative;
+    top: 167rpx;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 50rpx 0 30rpx;
+    border-radius: 8rpx;
+}
+
+.messageMaskContentContainer .messageArea {
+    display: block;
+    width: 560rpx;
+    height: 265rpx;
+    border: 1rpx solid #ddd;
+    margin: 0 auto 30rpx;
+    border-radius: 8rpx;
+    color: #333;
+    box-sizing: border-box;
+    padding: 20rpx;
+    font-size: 28rpx;
+}
+
+.messageMaskContentContainer .btnsContainer {
+    width: 565rpx;
+    height: 90rpx;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: auto;
+}
+
+.messageMaskContentContainer .btnsContainer button {
+    height: 70rpx;
+    width: 230rpx;
+    display: block;
+    border-radius: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32rpx;
+    border-color: #777372;
+    color: #777372;
+}
+
+.messageMaskContentContainer .btnsContainer button::after {
+    content: '';
+    border-radius: 0;
+}
+
+.messageMaskContentContainer .btnsContainer button.ok {
+    color: #fff;
+    background: #457C4A;
+    border-color: #457C4A;
+}
+
+.messageMaskContentContainer .btnsContainer button.ok.button-hover {
+    opacity: 0.8;
 }

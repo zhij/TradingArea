@@ -4,4 +4,5 @@ page {
     height: 100%;
     width: 100%;
     font-family: "黑体";
+    position: relative;
 }

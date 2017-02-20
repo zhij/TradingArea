@@ -8,20 +8,68 @@
         </view>
         <view class="payNumberContainer">
             <text class="payNumWord">消费金额</text>
-            <text class="payNumber ">188</text>
+            <text class="payNumber " bindtap="showKeyBoardFn">188</text>
         </view>
         <view class="discountContainer">
             <text class="discountMarks">每满100元减5元，5元优惠券</text>
             <text class="discountdNumber">183</text>
         </view>
         <view class="messageContainer">
-            <text class="messageContent">我就是留言你想咋地</text>
-            <text class="addMessageBtn">添加留言</text>
+            <text class="messageContent">{{messageContent}}</text>
+            <text class="addMessageBtn" bindtap="showAddMessageFn">{{addMessageBtnWord}}</text>
         </view>
     </view>
-    <text bindtap="getData">
+    <view class="keyBoardContainer" wx:if="{{keyBoardStatus}}">
+        <view class="adContainer">
+            <image src="{{globalData.imageServerUrl}}/ironcman.png" class="kaolacLogo"></image>
+            <view class="adContentContainer">
+                <image src="{{globalData.imageServerUrl}}/koalacWord.png" class="koalacNameWord"></image>
+                <text class="adContent">微信合作伙伴</text>
+            </view>
+        </view>
+        <view class="keyBoard">
+            <view class="left">
+                <button type="default" hover-start-time="50" hover-stay-time="50"> 1 </button>
+                <button type="default" hover-start-time="50" hover-stay-time="50"> 2 </button>
+                <button type="default" hover-start-time="50" hover-stay-time="50"> 3 </button>
+                <button type="default" hover-start-time="50" hover-stay-time="50"> 4 </button>
+                <button type="default" hover-start-time="50" hover-stay-time="50"> 5 </button>
+                <button type="default" hover-start-time="50" hover-stay-time="50"> 6 </button>
+                <button type="default" hover-start-time="50" hover-stay-time="50"> 7 </button>
+                <button type="default" hover-start-time="50" hover-stay-time="50"> 8 </button>
+                <button type="default" hover-start-time="50" hover-stay-time="50"> 9 </button>
+                <button class="noBorderBttom" bindtap="hideKeyBoardFn" type="default" hover-start-time="50" hover-stay-time="50">
+                    <image class="keyBoardIco" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAuBAMAAACoiUZDAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDIvMjAvMTd0/QHLAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAAAlwSFlzAAALEgAACxIB0t1+/AAAACdQTFRFTGlxf4OKf4OKf4OKf4OKf4OKf4OKf4OKf4OKf4OKf4OKf4OKf4OKh2wSLwAAAAx0Uk5TAEDSZ/CAmrDAGDBQQS0KEAAAANZJREFUKM9jYBA/gwYKGRiYz2AAAwaZI4aCKEDY5yBDjRcDGlhynAGoGA0wn2E4I4AuyAgR5EBY0gAX5EEIHsAviFU7VouIF2Q6E8B8xoHlzAbWMwpItjewnzkocyaBA8VJWASxaqfMSUxnEmTOTKg5znnmIBvQUIggzxmFmDMGZ84wnznKBLQejyBW7RQ5CVsU62iiC046xGBzCE0/o85hBjbMBJbAwBCCLuYKUi+IBhgGNdABOvsQuuAUoKAnuiCXz5kjCzD025w5jGko65kALFalwVkAfuDIw138tfUAAAAASUVORK5CYII="></image>
+                </button>
+                <button class="noBorderBttom" type="default" hover-start-time="50" hover-stay-time="50"> 0 </button>
+                <button class="noBorderBttom" type="default" hover-start-time="50" hover-stay-time="50"> . </button>
+            </view>
+            <view class="right">
+                <button class="noBorderRight" type="default" hover-start-time="50" hover-stay-time="50">
+                    <image class="keyBoardDelete" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADsAAAAnBAMAAABDHy1gAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDIvMjAvMTd0/QHLAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAC1QTFRFTGlxmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZIyCd4QAAAA50Uk5TAED58SReLxCe0OG1gWxY8dAaAAABZUlEQVQ4y32Tv0rDUBjFr0NsRIW6OXVQBAcpiFK3ICjiJJkdQiC7CE7dOjl2deukzt2chD5CB1/AxIi2ep7B75Jc78lN0zOEJL+c+/2NUqVaIzh6VaR11PRMeFjHaP9TH0h3KhJ8Qub07Zx1sR3gy9ANYE85SjAztxHSqYs3gbi484ADl6pW1+Qm5kkNK4PFvK+acYJ03IxXA8xVM06Ah/KNd6+vlxPCYv6+LfFNFusXOeE7a1ZX6OnT3i2WSc6MWWrIYjltYHEfeLTpROgl+LWpafOpxWIPEFq8BhxzNRGQU2HyOGAss5sQ9p1RShN63JYhstBSSRscW9sP2ZxHJnjRFrG3yRx6xl7gvo0mHcx18h+EufKONnrgnnPf/Cd9vX5hXOn6gm05o5ktwHriS7Bu1XjJIi/cNs/+gx1nMGVB9KW76SsjOlHmuntUURf45EB1TStb4uqHQvk1Om9zKluudJ//ABTHJdt1Y6iQAAAAAElFTkSuQmCC"></image>
+                </button>
+                <button class="wxPayBtn noBorderRight noBorderBttom" type="default" hover-start-time="50" hover-stay-time="50">
+                    <image class="keyBoardWxIco" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAAzBAMAAAA0mgbTAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDIvMjAvMTd0/QHLAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADBQTFRFTGlx////////////////////////////////////////////////////////////+sOJhAAAAA90Uk5TAEAQIKDwh+DA0F+wcG8wQ6KN4QAAAaRJREFUOMuNlL1Kw1AUx08bK1qrpC5+LGYQQVw6CgpWnZwEBzeJKCK42BcQddWhu0u79AF8AsUXEPQB9AXEwbZJaejx3puc9N7ce6v/IST5kdzz8T8HQFK+XC7Pglmbe8gVXlR0NnOOpN5LFhYbKOkxA69R0a0MnTpmdCLR1yzEwE3hGurqpmk2DBSrCV01QWyP+hTxWNApM3ywBSwVxDGxzi4jTcuPA16M+YhdlnQY8q+WseMB7Ou58DqN+4jPhmMPK9SWGhTjV8OcrzzebdGWQRJUO0ctvBMFio+LoBAHSZ3YFlmexQ992IpvXGjxNE8FnKPEKKEbcBoYvAm4nsZAdAAwfd8UcAU12k6tUPJ1imTinOy/lFZN/qOY8SB2wqXSjCRfcllLqWk/bWCHwwW14hGU6Jals5Hpx8+wRzU5UXoFT3TIop+lTaM3KBTWywkr5b5yfBut2f3M9Mnp2Igf2+eo+o8Z/GN+me1HzD7Ah16J4d6ASY3uSDtHq5eyrwrm0U70rbDeu7oImZuOvC/bjq1j10v2s6tt3zyGFbDKCVwz+AUs5LZnH+vNDwAAAABJRU5ErkJggg=="></image> 
+                    <text class="keyBoardWxWord">微信支付</text>   
+                </button>
+            </view>
+
+        </view>
+    </view>
+    <!--<text bindtap="getData">
         {{payData.userData.name}}
-    </text>
+    </text>-->
     <!--<image src="{{payData.shopData.avatar}}"></image>-->
     <!--<image src="{{globalData.imageServerUrl}}/mylogo.png"></image>-->
+
+    <!--留言窗口-->
+    <view class="messageMaskContainer" wx-if="{{messageStatus}}">
+        <view class="messageMaskContentContainer">
+            <textarea class="messageArea" placeholder="输入您的留言.." maxlength="40"></textarea>
+            <view class="btnsContainer">
+                <button type="default" bindtap="hideMessageFn" hover-start-time="50" hover-stay-time="50">取消</button>
+                <button type="default" bibdtap="hideMessageFn" class="ok" hover-start-time="50" hover-stay-time="50">确定</button>
+            </view>
+        </view>
+    </view>
 </view>

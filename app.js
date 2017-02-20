@@ -26,6 +26,8 @@ App({
     },
     globalData: {
         userInfo: null,
-        imageServerUrl: 'http://192.168.2.177:34567',
+        // imageServerUrl: 'http://192.168.2.172:34567',
+        imageServerUrl: 'http://demo.jqstudy.cn/',
+
     }
 })
