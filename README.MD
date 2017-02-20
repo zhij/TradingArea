@@ -23,5 +23,7 @@ globalData: App.globalData, // 将全局的变量赋值给当前页面的data内
 或者
 <image src="{{globalData.imageServerUrl}}/mylogo.png"></image>
 ```
+移动端测试时不能用本地的图片服务器，需要将图片素材放置在公网上的服务器内。
+本人使用demo.jqstudy.cn 域名 暂存图片等资源。
 
 * api接口
