@@ -8,7 +8,7 @@
         </view>
         <view class="payNumberContainer">
             <text class="payNumWord">消费金额</text>
-            <text class="payNumber " bindtap="showKeyBoardFn">188</text>
+            <text class="payNumber " bindtap="showKeyBoardFn">{{keyValue}}</text>
         </view>
         <view class="discountContainer">
             <text class="discountMarks">每满100元减5元，5元优惠券</text>
@@ -19,7 +19,7 @@
             <text class="addMessageBtn" bindtap="showAddMessageFn">{{addMessageBtnWord}}</text>
         </view>
     </view>
-    <view class="keyBoardContainer" wx:if="{{keyBoardStatus}}">
+    <view class="keyBoardContainer" wx:if="{{keyBoardStatus}}" animation="{{keyBoardAnimation}}">
         <view class="adContainer">
             <image src="{{globalData.imageServerUrl}}/ironcman.png" class="kaolacLogo"></image>
             <view class="adContentContainer">
@@ -29,23 +29,23 @@
         </view>
         <view class="keyBoard">
             <view class="left">
-                <button type="default" hover-start-time="50" hover-stay-time="50"> 1 </button>
-                <button type="default" hover-start-time="50" hover-stay-time="50"> 2 </button>
-                <button type="default" hover-start-time="50" hover-stay-time="50"> 3 </button>
-                <button type="default" hover-start-time="50" hover-stay-time="50"> 4 </button>
-                <button type="default" hover-start-time="50" hover-stay-time="50"> 5 </button>
-                <button type="default" hover-start-time="50" hover-stay-time="50"> 6 </button>
-                <button type="default" hover-start-time="50" hover-stay-time="50"> 7 </button>
-                <button type="default" hover-start-time="50" hover-stay-time="50"> 8 </button>
-                <button type="default" hover-start-time="50" hover-stay-time="50"> 9 </button>
+                <button type="default" bindtap="keyTapFn" data-keynum="1" disabled="{{keyNumStatus}}" hover-start-time="50" hover-stay-time="50"> 1 </button>
+                <button type="default" bindtap="keyTapFn" data-keynum="2" disabled="{{keyNumStatus}}" hover-start-time="50" hover-stay-time="50"> 2 </button>
+                <button type="default" bindtap="keyTapFn" data-keynum="3" disabled="{{keyNumStatus}}" hover-start-time="50" hover-stay-time="50"> 3 </button>
+                <button type="default" bindtap="keyTapFn" data-keynum="4" disabled="{{keyNumStatus}}" hover-start-time="50" hover-stay-time="50"> 4 </button>
+                <button type="default" bindtap="keyTapFn" data-keynum="5" disabled="{{keyNumStatus}}" hover-start-time="50" hover-stay-time="50"> 5 </button>
+                <button type="default" bindtap="keyTapFn" data-keynum="6" disabled="{{keyNumStatus}}" hover-start-time="50" hover-stay-time="50"> 6 </button>
+                <button type="default" bindtap="keyTapFn" data-keynum="7" disabled="{{keyNumStatus}}" hover-start-time="50" hover-stay-time="50"> 7 </button>
+                <button type="default" bindtap="keyTapFn" data-keynum="8" disabled="{{keyNumStatus}}" hover-start-time="50" hover-stay-time="50"> 8 </button>
+                <button type="default" bindtap="keyTapFn" data-keynum="9" disabled="{{keyNumStatus}}" hover-start-time="50" hover-stay-time="50"> 9 </button>
                 <button class="noBorderBttom" bindtap="hideKeyBoardFn" type="default" hover-start-time="50" hover-stay-time="50">
                     <image class="keyBoardIco" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAuBAMAAACoiUZDAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDIvMjAvMTd0/QHLAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAAAlwSFlzAAALEgAACxIB0t1+/AAAACdQTFRFTGlxf4OKf4OKf4OKf4OKf4OKf4OKf4OKf4OKf4OKf4OKf4OKf4OKh2wSLwAAAAx0Uk5TAEDSZ/CAmrDAGDBQQS0KEAAAANZJREFUKM9jYBA/gwYKGRiYz2AAAwaZI4aCKEDY5yBDjRcDGlhynAGoGA0wn2E4I4AuyAgR5EBY0gAX5EEIHsAviFU7VouIF2Q6E8B8xoHlzAbWMwpItjewnzkocyaBA8VJWASxaqfMSUxnEmTOTKg5znnmIBvQUIggzxmFmDMGZ84wnznKBLQejyBW7RQ5CVsU62iiC046xGBzCE0/o85hBjbMBJbAwBCCLuYKUi+IBhgGNdABOvsQuuAUoKAnuiCXz5kjCzD025w5jGko65kALFalwVkAfuDIw138tfUAAAAASUVORK5CYII="></image>
                 </button>
-                <button class="noBorderBttom" type="default" hover-start-time="50" hover-stay-time="50"> 0 </button>
-                <button class="noBorderBttom" type="default" hover-start-time="50" hover-stay-time="50"> . </button>
+                <button class="noBorderBttom" type="default" bindtap="keyTapFn" data-keynum="0" disabled="{{keyNumStatus}}" hover-start-time="50" hover-stay-time="50"> 0 </button>
+                <button class="noBorderBttom" type="default" bindtap="keyTapFn" disabled="{{keyPointStatus}}" data-keynum="." hover-start-time="50" hover-stay-time="50"> . </button>
             </view>
             <view class="right">
-                <button class="noBorderRight" type="default" hover-start-time="50" hover-stay-time="50">
+                <button class="noBorderRight" type="default" bindtap="keyDeleteFn" hover-start-time="50" hover-stay-time="50">
                     <image class="keyBoardDelete" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADsAAAAnBAMAAABDHy1gAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDIvMjAvMTd0/QHLAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAC1QTFRFTGlxmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZIyCd4QAAAA50Uk5TAED58SReLxCe0OG1gWxY8dAaAAABZUlEQVQ4y32Tv0rDUBjFr0NsRIW6OXVQBAcpiFK3ICjiJJkdQiC7CE7dOjl2deukzt2chD5CB1/AxIi2ep7B75Jc78lN0zOEJL+c+/2NUqVaIzh6VaR11PRMeFjHaP9TH0h3KhJ8Qub07Zx1sR3gy9ANYE85SjAztxHSqYs3gbi484ADl6pW1+Qm5kkNK4PFvK+acYJ03IxXA8xVM06Ah/KNd6+vlxPCYv6+LfFNFusXOeE7a1ZX6OnT3i2WSc6MWWrIYjltYHEfeLTpROgl+LWpafOpxWIPEFq8BhxzNRGQU2HyOGAss5sQ9p1RShN63JYhstBSSRscW9sP2ZxHJnjRFrG3yRx6xl7gvo0mHcx18h+EufKONnrgnnPf/Cd9vX5hXOn6gm05o5ktwHriS7Bu1XjJIi/cNs/+gx1nMGVB9KW76SsjOlHmuntUURf45EB1TStb4uqHQvk1Om9zKluudJ//ABTHJdt1Y6iQAAAAAElFTkSuQmCC"></image>
                 </button>
                 <button class="wxPayBtn noBorderRight noBorderBttom" type="default" hover-start-time="50" hover-stay-time="50">
@@ -64,12 +64,20 @@
 
     <!--留言窗口-->
     <view class="messageMaskContainer" wx-if="{{messageStatus}}">
-        <view class="messageMaskContentContainer">
-            <textarea class="messageArea" placeholder="输入您的留言.." maxlength="40"></textarea>
+        <view class="maskContainer" animation="{{messageMaskAnimation}}"></view>
+        <view class="messageMaskContentContainer" animation="{{messageAnimation}}">
+            <view class="textareaContainer">
+                <textarea class="messageArea" placeholder="输入您的留言.." maxlength="40" value="{{messageContent}}" bindinput="messageAreaInputFn"></textarea>
+
+            </view>
             <view class="btnsContainer">
                 <button type="default" bindtap="hideMessageFn" hover-start-time="50" hover-stay-time="50">取消</button>
-                <button type="default" bibdtap="hideMessageFn" class="ok" hover-start-time="50" hover-stay-time="50">确定</button>
+                <button type="default" bindtap="submitMessageFn" class="ok" hover-start-time="50" hover-stay-time="50">确定</button>
             </view>
         </view>
+    </view>
+
+    <view class="footerContainer">
+        <image class="footerInfoImage" src="http://demo.jqstudy.cn/footerInfoImage.png"></image>
     </view>
 </view>
