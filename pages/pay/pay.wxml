@@ -3,16 +3,16 @@
 <view class="payContainer">
     <view class="payContentContainer">
         <view class="shopInfoContainer">
-            <image src="{{payData.shopData.avatar}}" class="shopLogo"></image>
-            <text class="shopName">{{payData.shopData.name}}</text>
+            <image src="{{payData.shop.avatar}}" class="shopLogo"></image>
+            <text class="shopName">{{payData.shop.name}}</text>
         </view>
         <view class="payNumberContainer">
             <text class="payNumWord">消费金额</text>
             <text class="payNumber " bindtap="showKeyBoardFn">{{keyValue}}</text>
         </view>
         <view class="discountContainer">
-            <text class="discountMarks">每满100元减5元，5元优惠券</text>
-            <text class="discountdNumber">183</text>
+            <text class="discountMarks">{{keyDiscountContent}}</text>
+            <text class="discountdNumber">{{keyDiscountValue}}</text>
         </view>
         <view class="messageContainer">
             <text class="messageContent">{{messageContent}}</text>

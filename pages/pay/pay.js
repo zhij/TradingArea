@@ -3,42 +3,43 @@ var App = getApp()
 Page({
     data: {
         globalData: App.globalData, // 获取全局变量
-        payData: { // 支付数据
-            userData: { // 用户数据
-                openId: '100001', //
-                name: '进击的工程师', //
-                avatar: '' //
-            },
-            shopData: { // 商家数据
-                openId: '2000001',
-                name: '程序员超市',
-                avatar: App.globalData.imageServerUrl + '/shoplogo.png'
-            }
-        },
+        userInfo: {}, // 微信给出的基本信息,通过getUserInfo获取
+        payData: {}, // 支付数据
         messageContent: '', // 留言信息
-        messageContentCatch: '',
+        messageContentCatch: '', // 留言信息缓存，只有点击确认后才会同步到messageContent里去
         addMessageBtnWord: '添加留言', // 留言按钮的文字
         keyBoardStatus: true, // 键盘弹窗的状态值
         messageStatus: false, // 信息弹窗的状态值
         keyBoardAnimation: '', // 键盘动画
-        messageAnimation: '',
-        messageMaskAnimation: '',
+        messageAnimation: '', // 留言窗口动画
+        messageMaskAnimation: '', //留言窗口黑色背景动画
         keyValue: '', // 用户输入的数据
+        keyDiscountValue: '0.00', // 折扣后数据
+        keyDiscountContent: '暂无优惠', // 折扣计算后显示的折扣内容
         keyPointStatus: false, // 键盘中的小数点禁止状态，false为不禁止，true为禁止，防止多次输入小数点
         keyNumStatus: false // 键盘中数字的禁止状态, false为不禁止，true为禁止，必要时可以禁用数字输入
     },
-    onLoad: function() {
-        // console.log(App.globalData.imageServerUrl)
+    onLoad: function(options) {
+        console.log(App.globalData)
         let that = this
-        wx.request({
-            url: 'http://localhost:3456/user', //仅为示例，并非真实的接口地址
-            success: function(res) {
-                // console.log(res.data)
+            // 拿到微信给出的基本信息https://mp.weixin.qq.com/debug/wxadoc/dev/api/open.html
+        App.getUserInfo(function(userInfo) {
+                //更新微信用户基本数据
                 that.setData({
-                    'payData.userData': res.data
+                    userInfo: userInfo
                 })
-            }
-        })
+            })
+            // 请求后台数据，拿到商家信息和用户在公司服务器的数据
+        wx.request({
+                url: 'http://localhost:3456/initData', //仅为示例，并非真实的接口地址
+                success: function(res) {
+                    that.setData({
+                        'payData': res.data
+                    })
+                }
+            })
+            //  optins可以拿到二维码中的参数，以对象形式出现
+        let option = options
     },
     getData: function() {
         console.log("11")
@@ -226,28 +227,29 @@ Page({
                     keyPointStatus: false
                 })
             }
-            console.log("检测状态为：" + reg.test(val))
-            console.log(val)
+            // console.log("检测状态为：" + reg.test(val))
+            // console.log(val)
 
             if (!reg.test(val) && val != '') {
-                // console.log("巴巴爸爸吧吧")
                 this.setData({
                     keyNumStatus: true
-                })
+                });
             } else {
                 this.setData({
                     keyNumStatus: false
                 })
             }
+            this.discountFn(val)
             this.setData({
                 keyValue: val
             })
+
         }
 
     },
     // 键盘删除按键
     keyDeleteFn: function() {
-        console.log("122删除啦")
+        // console.log("122删除啦")
         console.log(typeof this.data.keyValue)
         let val = this.data.keyValue
         let reg = /^(([0-9]+)|^[\.][0-9]{0,1}|([0-9]+\.[0-9]{0,1}))$/;
@@ -267,7 +269,7 @@ Page({
                     keyPointStatus: false
                 })
             }
-            console.log("检测状态为：" + reg.test(val))
+            // console.log("检测状态为：" + reg.test(val))
             if (!reg.test(val) && val != '') {
                 // console.log("巴巴爸爸吧吧")
                 this.setData({
@@ -278,10 +280,86 @@ Page({
                     keyNumStatus: false
                 })
             }
+            // 更新输入数据
             this.setData({
                 keyValue: val
+            });
+            // 更新折扣后数据
+            this.discountFn(val)
+        }
+    },
+    // 折扣计算算法
+    discountFn: function(val) {
+        // console.log(this.data.payData.user.discountData)
+        let valNum = parseFloat(val)
+        let discountData = this.data.payData.user.discountData
+        let discountResultCatch = {
+            key: 0,
+            result: 0
+        }
+        console.log('折扣前价格' + val)
+        if (typeof discountData === "object") {
+            discountData.forEach(function(item, key) {
+                let vals = 0
+                if (item.type === 1) {
+                    // console.log("我开始算优惠券的折扣啦")
+                    if (valNum >= item.limit) {
+                        // console.log("满足条件了哦")
+                        vals = valNum - item.discont
+                        vals = vals.toFixed(2)
+                        console.log("优惠券结果" + vals)
+                        if (vals > discountResultCatch.result) {
+                            discountResultCatch.key = key
+                            discountResultCatch.result = vals
+                        }
+                    } else {
+                        vals = valNum
+                        vals = vals.toFixed(2)
+                        console.log("只有" + vals + ",还不够" + item.limit + "无法使用优惠券")
+                        if (vals > discountResultCatch.result) {
+                            discountResultCatch.key = key
+                            discountResultCatch.result = vals
+                        }
+                    }
+                } else if (item.type === 2) {
+                    vals = Math.floor(valNum / item.limit) * item.discont
+                    vals = valNum - vals;
+                    vals = vals.toFixed(2)
+                    console.log("每满减结果-----" + vals)
+                    if (vals < discountResultCatch.result) {
+                        if (discountData[discountResultCatch.key].type != 3) {
+                            discountResultCatch.key = key
+                            discountResultCatch.result = vals
+                        }
+                    }
+                } else if (item.type === 3) {
+                    vals = valNum * item.discont
+                    vals = vals.toFixed(2)
+                    console.log("折扣结果-----" + vals)
+                    if (vals <= discountResultCatch.result) {
+                        discountResultCatch.key = key
+                        discountResultCatch.result = vals
+                    }
+                }
+
+            })
+            console.log(discountResultCatch)
+            console.log(discountData[discountResultCatch.key])
+        }
+        if (discountResultCatch.result != 0) {
+            this.setData({
+                keyDiscountValue: discountResultCatch.result,
+                keyDiscountContent: discountData[discountResultCatch.key].content
+            })
+        } else {
+            this.setData({
+                keyDiscountValue: discountResultCatch.result,
+                keyDiscountContent: "暂无优惠"
             })
         }
+
+
+
     },
     onShareAppMessage: function() {
         return {
