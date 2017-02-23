@@ -1,0 +1,172 @@
+{
+    "initData": {
+        "user": {
+            "openId": 100001,
+            "name": "我是用户名字",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "discountData": [{
+                "type": 1,
+                "content": "满50减5元",
+                "limit": 50,
+                "discont": 5,
+                "status": true
+            }, {
+                "type": 2,
+                "content": "每满69减9元",
+                "limit": 69,
+                "discont": 9
+            }, {
+                "type": 3,
+                "content": "金牌粉丝9.2折",
+                "discont": 0.92
+            }]
+        },
+        "shop": {
+            "openId": 200001,
+            "name": "我是店铺名字",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号"
+        }
+    },
+    "successData": {
+        "shop": {
+            "openId": 200001,
+            "name": "我是店铺名字",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号"
+        },
+        "payInfo": {
+            "status": true,
+            "pauNum": "158.00",
+            "discount": "5",
+            "submitCode": "3322"
+        }
+    },
+    "user": {
+        "openId": 100001,
+        "name": "我是用户名字",
+        "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+        "records": [{
+            "openId": 20001,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字111",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "1231.22",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20002,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字222",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "98.19",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20003,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字333",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "15.02",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20004,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字444",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "26.22",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20005,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字555",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "22.45",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20005,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字555",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "22.45",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20005,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字555",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "22.45",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20005,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字555",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "22.45",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20005,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字555",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "22.45",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20005,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字555",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "22.45",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20005,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字555",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "22.45",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20005,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字555",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "22.45",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20005,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字555",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "22.45",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20005,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字555",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "22.45",
+            "addTime": "2017年1月1日 18:32"
+        }, {
+            "openId": 20005,
+            "transactionId": "1928783247",
+            "name": "我是店铺名字555",
+            "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+            "address": "广东省广州市天河区陶庄路5号",
+            "payNumber": "22.45",
+            "addTime": "2017年1月1日 18:32"
+        }]
+    }
+
+}
