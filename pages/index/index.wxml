@@ -1,12 +1,22 @@
 <!--index.wxml-->
-<view class="container">
-    <view bindtap="bindViewTap" class="userinfo">
-        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view class="indexContainer">
+    <view class="userInfoContainer">
+        <image class="userLogo" src="{{userInfo.avatarUrl}}"></image>
+        <view class="userInfo">
+            <text class="userName">{{userInfo.nickName}}</text>
+            <text class="userIntr">考拉号:100001</text>
+        </view>
     </view>
-    <view class="usermotto">
-        <text class="user-motto" bindtap="payfn">{{motto}}</text>
-        <text>{{context}}sss</text>
-        <input type="digit" placeholder="String" />
-    </view>
+    <scroll-view class="listGroup" scroll-y="true">
+        <view class="listItem" wx:for="{{userData.records}}" bindtap="getTransInfoFn" data-transid="{{item.transactionId}}">
+            <view class="shopInfoContainer">
+                <image class="shopLogo" src="{{userInfo.avatarUrl}}"></image>
+                <view class="shopInfo">
+                    <text class="shopName">{{item.name}}</text>
+                    <text class="shopIntr">{{item.addTime}}</text>
+                </view>
+            </view>
+            <view class="payNumber">{{item.payNumber}}</view>
+        </view>
+    </scroll-view>
 </view>

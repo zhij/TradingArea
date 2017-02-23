@@ -1,0 +1,203 @@
+.successContainer {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.infoContainer {
+    width: 100%;
+    height: 410rpx;
+    background: #fff;
+}
+
+.tips {
+    height: 88rpx;
+    width: 100%;
+    background: #fff;
+    font-size: 30rpx;
+    color: #C4BAAD;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+}
+
+.shopInfoContainer {
+    height: 165rpx;
+    width: 100%;
+    background: #fff;
+    border-top: 1rpx solid #ddd;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+}
+
+.successWordContainer {
+    width: 100%;
+    height: 52rpx;
+    color: #92BD52;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 106rpx;
+}
+
+.successWordContainer .image {
+    display: block;
+    width: 47rpx;
+    height: 47rpx;
+    margin-right: 10rpx;
+}
+
+.successWordContainer .word {
+    font-size: 42rpx;
+}
+
+.payNumberContainer {
+    width: 100%;
+    height: 75rpx;
+    position: absolute;
+    left: 0;
+    top: 203rpx;
+    font-family: "Arial";
+    font-size: 64rpx;
+    color: #333;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.payNumberContainer .number::before {
+    content: "￥";
+    font-family: "微软雅黑";
+    font-size: 36rpx;
+}
+
+.payInfoContainer {
+    width: 100%;
+    height: 36rpx;
+    position: absolute;
+    left: 0;
+    top: 301rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 26rpx;
+    color: #999;
+}
+
+.payInfoContainer .discountInfo {
+    margin: 0 10rpx;
+}
+
+.payInfoContainer .submitCode {
+    margin: 0 10rpx;
+}
+
+.shopInfoContainer .shopLogo {
+    display: block;
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.shopInfo {
+    width: 500rpx;
+    height: 60%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-family: "微软雅黑";
+}
+
+.shopInfo .shopName {
+    font-size: 34rpx;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #333;
+}
+
+.shopInfo .shopAddress {
+    font-size: 30rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #C4BAAD;
+}
+
+.shopDirection {
+    width: 50rpx;
+    height: 60%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.shopDirection::after {
+    content: ">";
+    font-size: 24rpx;
+    font-weight: 700;
+}
+
+.paymentRecord {
+    font-size: 22rpx;
+    color: #4C7994;
+    position: absolute;
+    bottom: 60rpx;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}

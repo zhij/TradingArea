@@ -34,15 +34,12 @@ Page({
                 url: 'http://localhost:3456/initData', //仅为示例，并非真实的接口地址
                 success: function(res) {
                     that.setData({
-                        'payData': res.data
+                        payData: res.data
                     })
                 }
             })
             //  optins可以拿到二维码中的参数，以对象形式出现
         let option = options
-    },
-    getData: function() {
-        console.log("11")
     },
     // 自定义事件
     // 键盘toggle事件
@@ -209,7 +206,7 @@ Page({
     keyTapFn: function(event) {
         // console.log(event.target.dataset.keynum)
         let reg = /^(([0-9]+)|[\.][0-9]{0,1}|([0-9]+\.[0-9]{0,1}))$/;
-        let val = event.target.dataset.keynum || e.currentTarget.dataset.keynum || ''
+        let val = event.target.dataset.keynum || event.currentTarget.dataset.keynum || ''
             // console.log(this.data.keyValue)
         val = this.data.keyValue + val
 
@@ -360,6 +357,31 @@ Page({
 
 
 
+    },
+    // 拉起支付功能
+    wxPayBtnFn: function() {
+        console.log("支付啦")
+            // 商户系统和微信支付系统主要交互：
+            // 主要流程：（图）https://pay.weixin.qq.com/wiki/doc/api/img/wxa-7-2.jpg
+            // 1、小程序内调用登录接口，获取到用户的openid,api参见公共api【小程序登录API】https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-login.html?t=20161122
+            // 2、商户server调用支付统一下单，api参见公共api【统一下单API】https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=9_1
+            // 3、商户server调用再次签名，api参见公共api【再次签名】https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=7_7
+            // 4、商户server接收支付通知，api参见公共api【支付结果通知API】https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=9_7
+            // 5、商户server查询支付结果，api参见公共api【查询订单API】https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=9_2
+            // wx.requestPayment({
+            //     'timeStamp': '1230000109',【前端生成】
+            //     'nonceStr': '5K8264ILTKCH16CQ2502SI8ZNMTM67VS',【】 //随机算法 https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=4_3
+            //     'package': 'prepay_id=12312333333333333', 【后台给】统一下单接口返回的 prepay_id 参数值 https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_1
+            //     'signType': 'MD5',
+            //     'paySign': '', https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=4_3 【后台给】
+            //     'success': function(res) {},
+            //     'fail': function(res) {}
+            // })
+            // 主要流程  把交易额，优惠信息，时间戳，留言等信息传递给后台，
+            // 后台拿到aoopenId,生成商户订单，调用统一下单API，返回 prepay_id,整合数据签名后返回给前端小程序（5个参数和sign）
+            // 前端吊起支付 wx.requestPayment，返回支付结果，展示支付结果。支付完成。。。
+
+        // wx.navigateTo()
     },
     onShareAppMessage: function() {
         return {

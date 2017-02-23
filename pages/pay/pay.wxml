@@ -48,7 +48,7 @@
                 <button class="noBorderRight" type="default" bindtap="keyDeleteFn" hover-start-time="50" hover-stay-time="50">
                     <image class="keyBoardDelete" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADsAAAAnBAMAAABDHy1gAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDIvMjAvMTd0/QHLAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAC1QTFRFTGlxmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZIyCd4QAAAA50Uk5TAED58SReLxCe0OG1gWxY8dAaAAABZUlEQVQ4y32Tv0rDUBjFr0NsRIW6OXVQBAcpiFK3ICjiJJkdQiC7CE7dOjl2deukzt2chD5CB1/AxIi2ep7B75Jc78lN0zOEJL+c+/2NUqVaIzh6VaR11PRMeFjHaP9TH0h3KhJ8Qub07Zx1sR3gy9ANYE85SjAztxHSqYs3gbi484ADl6pW1+Qm5kkNK4PFvK+acYJ03IxXA8xVM06Ah/KNd6+vlxPCYv6+LfFNFusXOeE7a1ZX6OnT3i2WSc6MWWrIYjltYHEfeLTpROgl+LWpafOpxWIPEFq8BhxzNRGQU2HyOGAss5sQ9p1RShN63JYhstBSSRscW9sP2ZxHJnjRFrG3yRx6xl7gvo0mHcx18h+EufKONnrgnnPf/Cd9vX5hXOn6gm05o5ktwHriS7Bu1XjJIi/cNs/+gx1nMGVB9KW76SsjOlHmuntUURf45EB1TStb4uqHQvk1Om9zKluudJ//ABTHJdt1Y6iQAAAAAElFTkSuQmCC"></image>
                 </button>
-                <button class="wxPayBtn noBorderRight noBorderBttom" type="default" hover-start-time="50" hover-stay-time="50">
+                <button class="wxPayBtn noBorderRight noBorderBttom" bindtap="wxPayBtnFn" type="default" hover-start-time="50" hover-stay-time="50">
                     <image class="keyBoardWxIco" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAAzBAMAAAA0mgbTAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDIvMjAvMTd0/QHLAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADBQTFRFTGlx////////////////////////////////////////////////////////////+sOJhAAAAA90Uk5TAEAQIKDwh+DA0F+wcG8wQ6KN4QAAAaRJREFUOMuNlL1Kw1AUx08bK1qrpC5+LGYQQVw6CgpWnZwEBzeJKCK42BcQddWhu0u79AF8AsUXEPQB9AXEwbZJaejx3puc9N7ce6v/IST5kdzz8T8HQFK+XC7Pglmbe8gVXlR0NnOOpN5LFhYbKOkxA69R0a0MnTpmdCLR1yzEwE3hGurqpmk2DBSrCV01QWyP+hTxWNApM3ywBSwVxDGxzi4jTcuPA16M+YhdlnQY8q+WseMB7Ou58DqN+4jPhmMPK9SWGhTjV8OcrzzebdGWQRJUO0ctvBMFio+LoBAHSZ3YFlmexQ992IpvXGjxNE8FnKPEKKEbcBoYvAm4nsZAdAAwfd8UcAU12k6tUPJ1imTinOy/lFZN/qOY8SB2wqXSjCRfcllLqWk/bWCHwwW14hGU6Jals5Hpx8+wRzU5UXoFT3TIop+lTaM3KBTWywkr5b5yfBut2f3M9Mnp2Igf2+eo+o8Z/GN+me1HzD7Ah16J4d6ASY3uSDtHq5eyrwrm0U70rbDeu7oImZuOvC/bjq1j10v2s6tt3zyGFbDKCVwz+AUs5LZnH+vNDwAAAABJRU5ErkJggg=="></image> 
                     <text class="keyBoardWxWord">微信支付</text>   
                 </button>
@@ -56,12 +56,6 @@
 
         </view>
     </view>
-    <!--<text bindtap="getData">
-        {{payData.userData.name}}
-    </text>-->
-    <!--<image src="{{payData.shopData.avatar}}"></image>-->
-    <!--<image src="{{globalData.imageServerUrl}}/mylogo.png"></image>-->
-
     <!--留言窗口-->
     <view class="messageMaskContainer" wx-if="{{messageStatus}}">
         <view class="maskContainer" animation="{{messageMaskAnimation}}"></view>

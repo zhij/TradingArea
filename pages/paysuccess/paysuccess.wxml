@@ -1,0 +1,25 @@
+<view class="successContainer">
+    <view class="infoContainer">
+        <view class="successWordContainer" wx-if="{{payData.payInfo.status}}">
+            <image class="image" src="{{globalData.imageServerUrl}}/successIco.png"></image>
+            <text class="word">支付完成</text>
+        </view>
+        <view class="payNumberContainer">
+            <text class="number">{{payData.payInfo.pauNum}}</text>
+        </view>
+        <view class="payInfoContainer">
+            <text class="discountInfo">已优惠{{payData.payInfo.discount}}元</text>
+            <text class="submitCode">确认码：{{payData.payInfo.submitCode}}</text>
+        </view>
+    </view>
+    <view class="tips">收款商家</view>
+    <view class="shopInfoContainer" bindtap="goPayFn">
+        <image src="{{payData.shop.avatar}}" class="shopLogo"></image>
+        <view class="shopInfo">
+            <text class="shopName">{{payData.shop.name}}</text>
+            <text class="shopAddress">{{payData.shop.address}}</text>
+        </view>
+        <view class="shopDirection"></view>
+    </view>
+    <text class="paymentRecord" bindtap="goHomeFn">消费记录</text>
+</view>

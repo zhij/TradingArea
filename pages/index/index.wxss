@@ -1,23 +1,115 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  align-items: center;
-  background: blue;
+
+.indexContainer {
+    background: #EBEBEB;
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
 
-.userinfo-avatar {
-  width: 48rpx;
-  height: 48rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.userInfoContainer {
+    width: 100%;
+    height: 165rpx;
+    background: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.userInfoContainer .userLogo {
+    display: block;
+    width: 110rpx;
+    height: 110rpx;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 30rpx;
 }
 
-.usermotto {
-  margin-top: 0px;
+.userInfoContainer .userInfo {
+    width: auto;
+    height: 110rpx;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.userName {
+    font-family: "微软雅黑";
+    font-size: 32rpx;
+    color: #333;
+}
+
+.userIntr {
+    font-family: "微软雅黑";
+    font-size: 28rpx;
+    color: #C4BAAD;
+}
+
+.listGroup {
+    width: 100%;
+    height: calc(100% - 195rpx);
+    background: red;
+    margin-top: 30rpx;
+}
+
+.listGroup .listItem {
+    width: 100%;
+    height: 165rpx;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 50rpx;
+    box-sizing: border-box;
+}
+
+.shopInfoContainer {
+    height: 100%;
+    width: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.listGroup .listItem .shopLogo {
+    display: block;
+    width: 110rpx;
+    height: 110rpx;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 30rpx;
+}
+
+.listGroup .listItem .shopInfo {
+    width: auto;
+    height: 110rpx;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.listGroup .listItem .shopName {
+    font-family: "微软雅黑";
+    font-size: 32rpx;
+    color: #333;
+}
+
+.listGroup .listItem .shopIntr {
+    font-family: "微软雅黑";
+    font-size: 28rpx;
+    color: #C4BAAD;
+}
+
+.payNumber {
+    color: #FF5000;
+    font-size: 40rpx;
+}
+
+.payNumber::before {
+    content: "￥";
+    font-family: "微软雅黑";
+    font-size: 30rpx;
 }

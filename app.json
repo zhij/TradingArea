@@ -2,7 +2,9 @@
     "pages": [
         "pages/index/index",
         "pages/logs/logs",
-        "pages/pay/pay"
+        "pages/pay/pay",
+        "pages/paysuccess/paysuccess",
+        "pages/detail/detail"
     ],
     "window": {
         "backgroundTextStyle": "light",
