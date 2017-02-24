@@ -23,7 +23,7 @@
         },
         "shop": {
             "openId": 200001,
-            "name": "我是店铺名字",
+            "name": "我是店铺sss名字",
             "avatar": "http://demo.jqstudy.cn/shoplogo.png",
             "address": "广东省广州市天河区陶庄路5号"
         }
@@ -81,10 +81,10 @@
         }, {
             "openId": 20005,
             "transactionId": "1928783247",
-            "name": "我是店铺名字555",
+            "name": "我是店铺名字555我是店铺名字555我是店铺名字555我是店铺名字555",
             "avatar": "http://demo.jqstudy.cn/shoplogo.png",
             "address": "广东省广州市天河区陶庄路5号",
-            "payNumber": "22.45",
+            "payNumber": "2888882.45",
             "addTime": "2017年1月1日 18:32"
         }, {
             "openId": 20005,
@@ -166,7 +166,20 @@
             "address": "广东省广州市天河区陶庄路5号",
             "payNumber": "22.45",
             "addTime": "2017年1月1日 18:32"
-        }]
-    }
+        }],
+        "record": []
+    },
+    "records": [{
+        "openId": 20005,
+        "transactionId": "1928783247",
+        "name": "我是店铺名字555",
+        "avatar": "http://demo.jqstudy.cn/shoplogo.png",
+        "address": "广东省广州市天河区陶庄路5号",
+        "payNumber": "22.45",
+        "addTime": "2017年1月1日 18:32",
+        "submitCode": "3322",
+        "contactNumber": "1008611",
+        "complaintNumber": "1008611"
+    }]
 
 }
