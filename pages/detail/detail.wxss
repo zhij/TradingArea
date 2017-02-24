@@ -1,0 +1,162 @@
+.detailContainer {
+    width: 100%;
+    height: 100%;
+    background: #EBEBEB;
+}
+
+.detailInfoContainer {
+    width: 100%;
+    min-height: 450rpx;
+    background: #fff;
+}
+
+.shopContainer {
+    width: 100%;
+    min-height: 165rpx;
+    background: #fff;
+    margin-top: 30rpx;
+}
+
+.mainInfo {
+    width: 100%;
+    height: 220rpx;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #EEEEEE;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainInfo .tipsWord {
+    font-size: 30rpx;
+    color: #999999;
+    margin: 10rpx auto;
+}
+
+.mainInfo .payNumber {
+    color: #FF5001;
+    font-size: 40rpx;
+    margin: 10rpx auto;
+}
+
+.mainInfo .payNumber::before {
+    content: "￥";
+    font-family: "微软雅黑";
+    font-size: 30rpx;
+    color: #FF5001;
+}
+
+.detailInfo {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 20rpx 40rpx;
+}
+
+.simInfoContainer {
+    width: 100%;
+    height: 50rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30rpx;
+}
+
+.simInfoContainer .title {
+    color: #C4BBB0;
+}
+
+.simInfoContainer .content {
+    color: #333333;
+}
+
+.shopInfoContainer {
+    width: 100%;
+    height: 165rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #EEEEEE;
+}
+
+.shopInfoContainer .shopLogo {
+    display: block;
+    height: 110rpx;
+    width: 110rpx;
+    border-radius: 50%;
+    border: 1rpx solid #EEEEEE;
+    overflow: hidden;
+}
+
+.shopInfoContainer .shopInfo {
+    width: 500rpx;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.shopInfoContainer .shopInfo .shopName {
+    font-size: 34rpx;
+    color: #333;
+}
+
+.shopInfoContainer .shopInfo .shopAddress {
+    font-size: 30rpx;
+    color: #C4BBAE;
+}
+
+.shopDirection {
+    width: 50rpx;
+    height: 60%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.shopDirection::after {
+    content: ">";
+    font-size: 24rpx;
+    font-weight: 700;
+    color: #C4BBAE;
+}
+
+.shopOtherInfoContainer .simInfoContainer {
+    height: 80rpx;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #EEEEEE;
+    padding: 0 30rpx;
+    color: #333333;
+}
+
+.simDirection {
+    width: 50rpx;
+    height: 60%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.simDirection::after {
+    content: ">";
+    font-size: 24rpx;
+    font-weight: 700;
+    color: #C4BBAE;
+}

@@ -1,6 +1,5 @@
 //index.js
-//获取应用实例
-var app = getApp()
+var App = getApp()
 Page({
     data: {
         globalData: App.globalData, // 获取全局变量
@@ -20,7 +19,7 @@ Page({
         console.log('onLoad')
         var that = this
             //调用应用实例的方法获取全局数据
-        app.getUserInfo(function(userInfo) {
+        App.getUserInfo(function(userInfo) {
             //更新数据
             that.setData({
                 userInfo: userInfo
@@ -28,7 +27,7 @@ Page({
         });
         // 请求后台数据，拿到商家信息和用户在公司服务器的数据
         wx.request({
-            url: 'http://localhost:3456/user', //仅为示例，并非真实的接口地址
+            url: 'http://192.168.2.200:3456/user', //仅为示例，并非真实的接口地址
             success: function(res) {
                 that.setData({
                     userData: res.data

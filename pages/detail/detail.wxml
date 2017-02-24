@@ -1,0 +1,48 @@
+<!--detail.wxml-->
+<view class="detailContainer">
+    <view class="detailInfoContainer">
+        <view class="mainInfo">
+            <text class="tipsWord">消费金额</text>
+            <text class="payNumber">{{detailData.payNumber}}</text>
+        </view>
+        <view class="detailInfo">
+            <view class="simInfoContainer">
+                <text class="title">商户名称</text>
+                <text class="content">{{detailData.name}}</text>
+            </view>
+            <view class="simInfoContainer">
+                <text class="title">确认码</text>
+                <text class="content">{{detailData.submitCode}}</text>
+            </view>
+            <view class="simInfoContainer">
+                <text class="title">订单号</text>
+                <text class="content">{{detailData.transactionId}}</text>
+            </view>
+            <view class="simInfoContainer">
+                <text class="title">付款时间</text>
+                <text class="content">{{detailData.addTime}}</text>
+            </view>
+        </view>
+
+    </view>
+    <view class="shopContainer">
+        <view class="shopInfoContainer" bindtap="goPayFn">
+            <image class="shopLogo" src="{{detailData.avatar}}"></image>
+            <view class="shopInfo">
+                <text class="shopName">{{detailData.name}}</text>
+                <text class="shopAddress">{{detailData.address}}</text>
+            </view>
+            <view class="shopDirection"></view>
+        </view>
+        <view class="shopOtherInfoContainer">
+            <view class="simInfoContainer contactNumber" bindtap="makePhoneCall" data-phone="{{detailData.contactNumber}}">
+                <text>联系商家</text>
+                <view class="simDirection"></view>
+            </view>
+            <view class="simInfoContainer complaintNumber" bindtap="makePhoneCall" data-phone="{{detailData.complaintNumber}}">
+                <text>投诉</text>
+                <view class="simDirection"></view>
+            </view>
+        </view>
+    </view>
+</view>

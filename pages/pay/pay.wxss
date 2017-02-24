@@ -90,14 +90,12 @@
     width: 4rpx;
     height: 70rpx;
     position: absolute;
-    background: red;
+    background: #91BD62;
     left: 0;
     top: 0;
 }
 
-.active {
-    background: red;
-}
+.active {}
 
 .payContentContainer .discountContainer {
     background: #fff;
@@ -404,6 +402,14 @@
     color: #333;
     box-sizing: border-box;
     font-size: 28rpx;
+    position: relative;
+}
+
+.messageMaskContentContainer .textareaContainer .wordNumber {
+    position: absolute;
+    bottom: 10rpx;
+    right: 10rpx;
+    color: #ccc;
 }
 
 .messageMaskContentContainer .textareaContainer .messageArea {

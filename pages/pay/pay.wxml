@@ -8,7 +8,7 @@
         </view>
         <view class="payNumberContainer">
             <text class="payNumWord">消费金额</text>
-            <text class="payNumber " bindtap="showKeyBoardFn">{{keyValue}}</text>
+            <text class="payNumber {{ inputStatus?'active':''}}" bindtap="showKeyBoardFn">{{keyValue}}</text>
         </view>
         <view class="discountContainer">
             <text class="discountMarks">{{keyDiscountContent}}</text>
@@ -62,7 +62,7 @@
         <view class="messageMaskContentContainer" animation="{{messageAnimation}}">
             <view class="textareaContainer">
                 <textarea class="messageArea" placeholder="输入您的留言.." maxlength="40" value="{{messageContent}}" bindinput="messageAreaInputFn"></textarea>
-
+                <text class="wordNumber">{{messageContentCatch.length}}/40</text>
             </view>
             <view class="btnsContainer">
                 <button type="default" bindtap="hideMessageFn" hover-start-time="50" hover-stay-time="50">取消</button>

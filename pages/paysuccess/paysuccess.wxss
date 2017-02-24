@@ -75,6 +75,7 @@
 
 .successWordContainer .word {
     font-size: 42rpx;
+    font-weight: 700;
 }
 
 .payNumberContainer {
@@ -157,7 +158,6 @@
 
 .shopInfo .shopName {
     font-size: 34rpx;
-    font-weight: 700;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -190,6 +190,7 @@
     content: ">";
     font-size: 24rpx;
     font-weight: 700;
+    color: #C4BCAF;
 }
 
 .paymentRecord {

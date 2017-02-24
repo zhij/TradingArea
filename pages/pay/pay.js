@@ -8,6 +8,7 @@ Page({
         messageContent: '', // 留言信息
         messageContentCatch: '', // 留言信息缓存，只有点击确认后才会同步到messageContent里去
         addMessageBtnWord: '添加留言', // 留言按钮的文字
+        inputStatus: true, // 信息输入状态
         keyBoardStatus: true, // 键盘弹窗的状态值
         messageStatus: false, // 信息弹窗的状态值
         keyBoardAnimation: '', // 键盘动画
@@ -17,7 +18,7 @@ Page({
         keyDiscountValue: '0.00', // 折扣后数据
         keyDiscountContent: '暂无优惠', // 折扣计算后显示的折扣内容
         keyPointStatus: false, // 键盘中的小数点禁止状态，false为不禁止，true为禁止，防止多次输入小数点
-        keyNumStatus: false // 键盘中数字的禁止状态, false为不禁止，true为禁止，必要时可以禁用数字输入
+        keyNumStatus: false, // 键盘中数字的禁止状态, false为不禁止，true为禁止，必要时可以禁用数字输入
     },
     onLoad: function(options) {
         console.log(App.globalData)
@@ -55,7 +56,8 @@ Page({
         animation.translateY(0).step()
             //  通过动画实例的export方法导出动画数据传递给组件的animation属性
         this.setData({
-            keyBoardAnimation: animation.export()
+            keyBoardAnimation: animation.export(),
+            inputStatus: false
         })
 
     },
@@ -71,8 +73,13 @@ Page({
         animation.translateY(400).step()
             //  通过动画实例的export方法导出动画数据传递给组件的animation属性
         this.setData({
-            keyBoardAnimation: animation.export()
+            keyBoardAnimation: animation.export(),
         })
+        if (this.data.keyValue == '') {
+            this.setData({
+                inputStatus: true
+            })
+        }
     },
     // 留言toggle事件
     showAddMessageFn: function() {
@@ -381,7 +388,9 @@ Page({
             // 后台拿到aoopenId,生成商户订单，调用统一下单API，返回 prepay_id,整合数据签名后返回给前端小程序（5个参数和sign）
             // 前端吊起支付 wx.requestPayment，返回支付结果，展示支付结果。支付完成。。。
 
-        // wx.navigateTo()
+        wx.navigateTo({
+            url: "../paysuccess/paysuccess"
+        })
     },
     onShareAppMessage: function() {
         return {

@@ -4,7 +4,7 @@
         <image class="userLogo" src="{{userInfo.avatarUrl}}"></image>
         <view class="userInfo">
             <text class="userName">{{userInfo.nickName}}</text>
-            <text class="userIntr">考拉号:100001</text>
+            <text class="userIntr">考拉号:{{userData.openId}}</text>
         </view>
     </view>
     <scroll-view class="listGroup" scroll-y="true">
@@ -17,6 +17,10 @@
                 </view>
             </view>
             <view class="payNumber">{{item.payNumber}}</view>
+        </view>
+        <view class="emptyContainer" wx-if="{{userData.records.length ==0}}">
+            <image class="emptyImage" src="{{globalData.imageServerUrl}}/emptyImage.png"></image>
+            <text class="emptyWord">暂时没有消费记录</text>
         </view>
     </scroll-view>
 </view>
