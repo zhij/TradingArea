@@ -1,5 +1,5 @@
 //pay.js
-var App = getApp()
+var App = getApp();
 Page({
     data: {
         globalData: App.globalData, // 获取全局变量
@@ -21,26 +21,26 @@ Page({
         keyNumStatus: false, // 键盘中数字的禁止状态, false为不禁止，true为禁止，必要时可以禁用数字输入
     },
     onLoad: function(options) {
-        console.log(App.globalData)
-        let that = this
+        console.log(App.globalData);
+        var that = this;
             // 拿到微信给出的基本信息https://mp.weixin.qq.com/debug/wxadoc/dev/api/open.html
         App.getUserInfo(function(userInfo) {
                 //更新微信用户基本数据
                 that.setData({
                     userInfo: userInfo
-                })
-            })
+                });
+            });
             // 请求后台数据，拿到商家信息和用户在公司服务器的数据
         wx.request({
                 url: 'http://localhost:3456/initData', //仅为示例，并非真实的接口地址
                 success: function(res) {
                     that.setData({
                         payData: res.data
-                    })
+                    });
                 }
-            })
+            });
             //  optins可以拿到二维码中的参数，以对象形式出现
-        let option = options
+        var option = options;
     },
     // 自定义事件
     // 键盘toggle事件
@@ -51,14 +51,14 @@ Page({
                 duration: 500,
                 timingFunction: "ease",
                 delay: 0
-            })
+            });
             // 动画序列
-        animation.translateY(0).step()
+        animation.translateY(0).step();
             //  通过动画实例的export方法导出动画数据传递给组件的animation属性
         this.setData({
             keyBoardAnimation: animation.export(),
             inputStatus: false
-        })
+        });
 
     },
     hideKeyBoardFn: function() {
@@ -68,185 +68,185 @@ Page({
                 duration: 500,
                 timingFunction: "ease",
                 delay: 0
-            })
+            });
             // 动画序列
-        animation.translateY(400).step()
+        animation.translateY(400).step();
             //  通过动画实例的export方法导出动画数据传递给组件的animation属性
         this.setData({
             keyBoardAnimation: animation.export(),
-        })
-        if (this.data.keyValue == '') {
+        });
+        if (this.data.keyValue === '') {
             this.setData({
                 inputStatus: true
-            })
+            });
         }
     },
     // 留言toggle事件
     showAddMessageFn: function() {
         this.setData({
                 messageStatus: true
-            })
+            });
             // 创建一个动画（message内容框的动画）
-        let animation = wx.createAnimation({
+        var animation = wx.createAnimation({
                 transformOrigin: "50% 50%",
                 duration: 500,
                 timingFunction: "ease",
                 delay: 0
-            })
+            });
             // 动画序列
-        animation.translateY(0).opacity(1).step()
+        animation.translateY(0).opacity(1).step();
             //  通过动画实例的export方法导出动画数据传递给组件的animation属性
         this.setData({
             messageAnimation: animation.export()
-        })
+        });
 
         // 创建一个动画(messageMask的动画)
-        let animationMask = wx.createAnimation({
+        var animationMask = wx.createAnimation({
                 transformOrigin: "50% 50%",
                 duration: 500,
                 timingFunction: "ease",
                 delay: 0
-            })
+            });
             // 动画序列
-        animationMask.opacity(0.5).step()
+        animationMask.opacity(0.5).step();
             //  通过动画实例的export方法导出动画数据传递给组件的animation属性
         this.setData({
             messageMaskAnimation: animationMask.export()
-        })
+        });
 
     },
     messageAreaInputFn: function(event) {
-        console.log(event.detail.value)
-        let val = event.detail.value
+        console.log(event.detail.value);
+        var val = event.detail.value;
         this.setData({
             messageContentCatch: val
-        })
+        });
     },
     // 用户留言信息取消按钮
     hideMessageFn: function() {
-        let that = this
+        var that = this;
             // 创建一个动画
-        let animation = wx.createAnimation({
+        var animation = wx.createAnimation({
                 transformOrigin: "50% 50%",
                 duration: 500,
                 timingFunction: "ease",
                 delay: 0
-            })
+            });
             // 动画序列
-        animation.translateY(200).opacity(0).step()
+        animation.translateY(200).opacity(0).step();
             //  通过动画实例的export方法导出动画数据传递给组件的animation属性
         this.setData({
             messageAnimation: animation.export()
-        })
+        });
 
         // 创建一个动画(messageMask的动画)
-        let animationMask = wx.createAnimation({
+        var animationMask = wx.createAnimation({
                 transformOrigin: "50% 50%",
                 duration: 500,
                 timingFunction: "ease",
                 delay: 0
-            })
+            });
             // 动画序列
-        animationMask.opacity(0).step()
+        animationMask.opacity(0).step();
             //  通过动画实例的export方法导出动画数据传递给组件的animation属性
         this.setData({
             messageMaskAnimation: animationMask.export()
-        })
+        });
 
         setTimeout(function() {
             that.setData({
                 messageStatus: false
-            })
-        }, 600)
+            });
+        }, 600);
 
     },
     // 用户留言信息确认按钮
     submitMessageFn: function() {
-        let messageContentCatch = this.data.messageContentCatch
-        if (messageContentCatch != '') {
+        var messageContentCatch = this.data.messageContentCatch;
+        if (messageContentCatch !== '') {
             this.setData({
                 messageContent: messageContentCatch,
                 // messageStatus: false,
                 addMessageBtnWord: '修改'
-            })
+            });
         } else {
             this.setData({
                 messageContent: messageContentCatch,
                 // messageStatus: false,
                 addMessageBtnWord: '添加留言'
-            })
+            });
         }
-        let that = this
+        var that = this;
             // 创建一个动画
-        let animation = wx.createAnimation({
+        var animation = wx.createAnimation({
                 transformOrigin: "50% 50%",
                 duration: 500,
                 timingFunction: "ease",
                 delay: 0
-            })
+            });
             // 动画序列
-        animation.translateY(200).opacity(0).step()
+        animation.translateY(200).opacity(0).step();
             //  通过动画实例的export方法导出动画数据传递给组件的animation属性
         this.setData({
                 messageAnimation: animation.export()
-            })
+            });
             // 创建一个动画(messageMask的动画)
-        let animationMask = wx.createAnimation({
+        var animationMask = wx.createAnimation({
                 transformOrigin: "50% 50%",
                 duration: 500,
                 timingFunction: "ease",
                 delay: 0
-            })
+            });
             // 动画序列
-        animationMask.opacity(0).step()
+        animationMask.opacity(0).step();
             //  通过动画实例的export方法导出动画数据传递给组件的animation属性
         this.setData({
             messageMaskAnimation: animationMask.export()
-        })
+        });
         setTimeout(function() {
             that.setData({
                 messageStatus: false
-            })
-        }, 600)
+            });
+        }, 600);
     },
     // 键盘数字按键
     keyTapFn: function(event) {
         // console.log(event.target.dataset.keynum)
-        let reg = /^(([0-9]+)|[\.][0-9]{0,1}|([0-9]+\.[0-9]{0,1}))$/;
-        let val = event.target.dataset.keynum || event.currentTarget.dataset.keynum || ''
+        var reg = /^(([0-9]+)|[\.][0-9]{0,1}|([0-9]+\.[0-9]{0,1}))$/;
+        var val = event.target.dataset.keynum || event.currentTarget.dataset.keynum || '';
             // console.log(this.data.keyValue)
-        val = this.data.keyValue + val
+        val = this.data.keyValue + val;
 
         if (parseFloat(val) > 10000000) {
-            console.log("超出数据范围啦")
+            console.log("超出数据范围啦");
         } else {
             if (val.indexOf('.') >= 0) {
                 // console.log("有小数点啦")
                 this.setData({
                     keyPointStatus: true
-                })
+                });
             } else {
                 // console.log("没有小数点啦")
                 this.setData({
                     keyPointStatus: false
-                })
+                });
             }
             // console.log("检测状态为：" + reg.test(val))
             // console.log(val)
 
-            if (!reg.test(val) && val != '') {
+            if (!reg.test(val) && val !== '') {
                 this.setData({
                     keyNumStatus: true
                 });
             } else {
                 this.setData({
                     keyNumStatus: false
-                })
+                });
             }
-            this.discountFn(val)
+            this.discountFn(val);
             this.setData({
                 keyValue: val
-            })
+            });
 
         }
 
@@ -254,112 +254,112 @@ Page({
     // 键盘删除按键
     keyDeleteFn: function() {
         // console.log("122删除啦")
-        console.log(typeof this.data.keyValue)
-        let val = this.data.keyValue
-        let reg = /^(([0-9]+)|^[\.][0-9]{0,1}|([0-9]+\.[0-9]{0,1}))$/;
-        val = val.substring(0, val.length - 1)
-        console.log(val)
+        console.log(typeof this.data.keyValue);
+        var val = this.data.keyValue;
+        var reg = /^(([0-9]+)|^[\.][0-9]{0,1}|([0-9]+\.[0-9]{0,1}))$/;
+        val = val.substring(0, val.length - 1);
+        console.log(val);
         if (parseFloat(val) > 10000000) {
-            console.log("超出数据范围啦")
+            console.log("超出数据范围啦");
         } else {
             if (val.indexOf('.') >= 0) {
                 // console.log("有小数点啦")
                 this.setData({
                     keyPointStatus: true
-                })
+                });
             } else {
                 // console.log("没有小数点啦")
                 this.setData({
                     keyPointStatus: false
-                })
+                });
             }
             // console.log("检测状态为：" + reg.test(val))
-            if (!reg.test(val) && val != '') {
+            if (!reg.test(val) && val !== '') {
                 // console.log("巴巴爸爸吧吧")
                 this.setData({
                     keyNumStatus: true
-                })
+                });
             } else {
                 this.setData({
                     keyNumStatus: false
-                })
+                });
             }
             // 更新输入数据
             this.setData({
                 keyValue: val
             });
             // 更新折扣后数据
-            this.discountFn(val)
+            this.discountFn(val);
         }
     },
     // 折扣计算算法
     discountFn: function(val) {
         // console.log(this.data.payData.user.discountData)
-        let valNum = parseFloat(val)
-        let discountData = this.data.payData.user.discountData
-        let discountResultCatch = {
+        var valNum = parseFloat(val);
+        var discountData = this.data.payData.user.discountData;
+        var discountResultCatch = {
             key: 0,
             result: 0
-        }
-        console.log('折扣前价格' + val)
+        };
+        console.log('折扣前价格' + val);
         if (typeof discountData === "object") {
             discountData.forEach(function(item, key) {
-                let vals = 0
+                var vals = 0;
                 if (item.type === 1) {
                     // console.log("我开始算优惠券的折扣啦")
                     if (valNum >= item.limit) {
                         // console.log("满足条件了哦")
-                        vals = valNum - item.discont
-                        vals = vals.toFixed(2)
-                        console.log("优惠券结果" + vals)
+                        vals = valNum - item.discont;
+                        vals = vals.toFixed(2);
+                        console.log("优惠券结果" + vals);
                         if (vals > discountResultCatch.result) {
-                            discountResultCatch.key = key
-                            discountResultCatch.result = vals
+                            discountResultCatch.key = key;
+                            discountResultCatch.result = vals;
                         }
                     } else {
-                        vals = valNum
-                        vals = vals.toFixed(2)
-                        console.log("只有" + vals + ",还不够" + item.limit + "无法使用优惠券")
+                        vals = valNum;
+                        vals = vals.toFixed(2);
+                        console.log("只有" + vals + ",还不够" + item.limit + "无法使用优惠券");
                         if (vals > discountResultCatch.result) {
-                            discountResultCatch.key = key
-                            discountResultCatch.result = vals
+                            discountResultCatch.key = key;
+                            discountResultCatch.result = vals;
                         }
                     }
                 } else if (item.type === 2) {
-                    vals = Math.floor(valNum / item.limit) * item.discont
+                    vals = Math.floor(valNum / item.limit) * item.discont;
                     vals = valNum - vals;
-                    vals = vals.toFixed(2)
-                    console.log("每满减结果-----" + vals)
+                    vals = vals.toFixed(2);
+                    console.log("每满减结果-----" + vals);
                     if (vals < discountResultCatch.result) {
                         if (discountData[discountResultCatch.key].type != 3) {
-                            discountResultCatch.key = key
-                            discountResultCatch.result = vals
+                            discountResultCatch.key = key;
+                            discountResultCatch.result = vals;
                         }
                     }
                 } else if (item.type === 3) {
-                    vals = valNum * item.discont
-                    vals = vals.toFixed(2)
-                    console.log("折扣结果-----" + vals)
+                    vals = valNum * item.discont;
+                    vals = vals.toFixed(2);
+                    console.log("折扣结果-----" + vals);
                     if (vals <= discountResultCatch.result) {
-                        discountResultCatch.key = key
-                        discountResultCatch.result = vals
+                        discountResultCatch.key = key;
+                        discountResultCatch.result = vals;
                     }
                 }
 
-            })
-            console.log(discountResultCatch)
-            console.log(discountData[discountResultCatch.key])
+            });
+            console.log(discountResultCatch);
+            console.log(discountData[discountResultCatch.key]);
         }
-        if (discountResultCatch.result != 0) {
+        if (discountResultCatch.result !== 0 || discountResultCatch.result !== '0') {
             this.setData({
                 keyDiscountValue: discountResultCatch.result,
                 keyDiscountContent: discountData[discountResultCatch.key].content
-            })
+            });
         } else {
             this.setData({
                 keyDiscountValue: discountResultCatch.result,
                 keyDiscountContent: "暂无优惠"
-            })
+            });
         }
 
 
@@ -367,7 +367,7 @@ Page({
     },
     // 拉起支付功能
     wxPayBtnFn: function() {
-        console.log("支付啦")
+        console.log("支付啦");
             // 商户系统和微信支付系统主要交互：
             // 主要流程：（图）https://pay.weixin.qq.com/wiki/doc/api/img/wxa-7-2.jpg
             // 1、小程序内调用登录接口，获取到用户的openid,api参见公共api【小程序登录API】https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-login.html?t=20161122
@@ -390,12 +390,12 @@ Page({
 
         wx.navigateTo({
             url: "../paysuccess/paysuccess"
-        })
+        });
     },
     onShareAppMessage: function() {
         return {
             title: '自定义分享标题',
             path: '/pages/index/index'
-        }
+        };
     }
-})
+});

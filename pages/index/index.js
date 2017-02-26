@@ -1,5 +1,5 @@
 //index.js
-var App = getApp()
+var App = getApp();
 Page({
     data: {
         globalData: App.globalData, // 获取全局变量
@@ -8,16 +8,16 @@ Page({
     },
     // 自定义事件
     getTransInfoFn: function(event) {
-        let val = event.target.dataset.transid || event.currentTarget.dataset.transid || ''
-        if (val != '') {
+        var val = event.target.dataset.transid || event.currentTarget.dataset.transid || '';
+        if (val !=='') {
             wx.navigateTo({
                 url: "../detail/detail?transid=" + val
-            })
+            });
         }
     },
     onLoad: function() {
-        console.log('onLoad')
-        var that = this
+        console.log('onLoad');
+        var that = this;
             //调用应用实例的方法获取全局数据
         App.getUserInfo(function(userInfo) {
             //更新数据
@@ -31,14 +31,14 @@ Page({
             success: function(res) {
                 that.setData({
                     userData: res.data
-                })
+                });
             }
-        })
+        });
     },
     onShareAppMessage: function() {
         return {
             title: '自定义分享标题',
             path: '/pages/index/index'
-        }
+        };
     }
-})
+});
