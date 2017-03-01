@@ -61,7 +61,8 @@ App({
 
                                         },
                                         success: function(data) {
-                                            console.log(data.data);
+                                            console.log(data);
+                                            // 明天接通数据授权认证
                                             decodeData = data.data;
                                             console.log(typeof decodeData);
                                             // console.log(JSON.parse("'" + decodeData + "'"));
